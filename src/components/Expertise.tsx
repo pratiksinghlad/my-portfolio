@@ -25,6 +25,8 @@ const labelsDevops = [
     "Linux",
 ];
 
+const exprienceYear = new Date().getFullYear() - 2017;
+
 function Expertise() {
     return (
     <div className="container" id="expertise">
@@ -35,7 +37,7 @@ function Expertise() {
                     <FontAwesomeIcon icon={faMicrosoft} size="3x" style={{padding: "3px"}}/>
                     <FontAwesomeIcon icon={faReact} size="3x" style={{padding: "3px"}}/>
                     <h3>Full Stack Web Development</h3> 
-                    <p>8+ years in Full Stack Web Dev: I craft enterprise-grade apps using .NET, JS/TS, Angular, React, SQL Server & T-SQL.
+                    <p>{exprienceYear} years in Full Stack Web Dev: I craft enterprise-grade apps using .NET, JS/TS, Angular, React, SQL Server & T-SQL.
                        Azure Certified expert in cloud solutions, microservices, Docker & Kubernetes.</p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
