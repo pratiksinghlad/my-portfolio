@@ -73,11 +73,7 @@ You can choose your preferred service (e.g., [Netlify](https://www.netlify.com/)
    }
    }
 
-   ```
-
    Replace `yourusername` with your GitHub username and `your-repo-name` with the name of your GitHub repository.
-
-   ```
 
 3. **Deploy to GitHub Pages**
 
@@ -111,8 +107,8 @@ This project uses GitHub Actions for CI/CD:
 
 ### Status Badges
 
-![Build Status](https://github.com/[your-username]/my-portfolio/actions/workflows/build.yml/badge.svg)
-![ESLint Status](https://github.com/[your-username]/my-portfolio/actions/workflows/eslint.yml/badge.svg)
+![Build Status](https://github.com/pratiksinghlad/my-portfolio/actions/workflows/build.yml/badge.svg)
+![ESLint Status](https://github.com/pratiksinghlad/my-portfolio/actions/workflows/eslint.yml/badge.svg)
 
 ## Code Quality and Development Tools
 
