@@ -91,6 +91,29 @@ You can choose your preferred service (e.g., [Netlify](https://www.netlify.com/)
 
    After successfully deploying, you can access your app at `https://yourusername.github.io/your-repo-name`.
 
+## Continuous Integration/Continuous Deployment
+
+This project uses GitHub Actions for CI/CD:
+
+### Automated Workflows
+
+1. **Build Verification**
+
+   - Runs on every push and pull request to main branch
+   - Builds the project using Node.js 18.x and 20.x
+   - Verifies build success
+   - Uploads build artifacts for deployment
+
+2. **Code Quality**
+   - ESLint checking on every push and pull request
+   - Ensures code style and quality standards
+   - Blocks merging if ESLint checks fail
+
+### Status Badges
+
+![Build Status](https://github.com/[your-username]/my-portfolio/actions/workflows/build.yml/badge.svg)
+![ESLint Status](https://github.com/[your-username]/my-portfolio/actions/workflows/eslint.yml/badge.svg)
+
 ## Code Quality and Development Tools
 
 This project uses modern development tools to ensure code quality and developer productivity:
