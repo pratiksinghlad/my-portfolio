@@ -1,6 +1,6 @@
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from '@mui/icons-material/X';
+import XIcon from "@mui/icons-material/X";
 import "../assets/styles/Footer.scss";
 import { LINKEDIN_PROFILE_ID, GITHUB_PROFILE_ID, X_PROFILE_ID, MY_NAME } from "../utils/constants";
 
@@ -20,11 +20,7 @@ function Footer() {
         >
           <LinkedInIcon />
         </a>
-        <a
-          href={`https://x.com/${X_PROFILE_ID}`}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={`https://x.com/${X_PROFILE_ID}`} target="_blank" rel="noreferrer">
           <XIcon />
         </a>
       </div>

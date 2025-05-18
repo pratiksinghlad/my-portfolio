@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pratiksinghlad.github.io/my-portfolio",
+  "homepage": "/my-portfolio/",
   "type": "module",
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -19,11 +19,13 @@
     "sass": "^1.86.0"
   },
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
+    "build:cf": "vite build --base=/",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0 --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -48,12 +50,20 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/react-vertical-timeline-component": "^3.3.6",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "gh-pages": "^6.3.0",
+    "prettier": "^3.0.0",
     "typescript": "^5.3.3",
-    "vite": "^5.1.4",
-    "vite-plugin-checker": "^0.9.1",
+    "vite": "^6.3.5",
+    "vite-plugin-checker": "^0.6.4",
     "vite-plugin-compression": "^0.5.1",
-    "web-vitals": "^2.1.4"
+    "vite-plugin-svgr": "^4.3.0"
   }
 }
