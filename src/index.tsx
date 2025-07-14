@@ -5,7 +5,7 @@ import App from "./App";
 
 // Securely inject Cloudflare Web Analytics using environment variable
 const cfToken = import.meta.env.VITE_CLOUDFLARE_TOKEN;
-if (cfToken) {
+if (import.meta.env.PROD && cfToken) {
   const script = document.createElement("script");
   script.defer = true;
   script.src = "https://static.cloudflareinsights.com/beacon.min.js";

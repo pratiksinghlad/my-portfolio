@@ -25,7 +25,7 @@ function Contact() {
     <div id="contact">
       <div className="items-container">
         <div className="contact_wrapper">
-          <h1>Lets Create Something Amazing</h1>
+          <h1>Let&apos;s Create Something Amazing</h1>
           <p>
             Ready to bring your vision to life? With expertise in full-stack development and cloud
             architecture, I transform complex ideas into elegant, scalable solutions. Specializing
