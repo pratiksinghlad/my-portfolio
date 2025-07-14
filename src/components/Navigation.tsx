@@ -24,8 +24,7 @@ const navItems = [
 ];
 
 // eslint-disable-next-line
-function Navigation({parentToChild, modeChange}: any) {
-
+function Navigation({ parentToChild, modeChange }: any) {
   const { mode } = parentToChild;
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);

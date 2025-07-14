@@ -30,6 +30,11 @@ function Main() {
 
           <h2>{MY_NAME}</h2>
           <p>Full Stack Engineer</p>
+          <div className="intro-text">
+            <p><span aria-hidden="true">🚀</span> Turning ideas into elegant solutions | Open for exciting collaborations</p>
+            <p><span aria-hidden="true">💡</span> Specialized in building scalable web applications and microservices</p>
+            <p><span aria-hidden="true">🤝</span> Available for freelance projects and technical consultations</p>
+          </div>
 
           <div className="mobile_social_icons">
             <a href={`https://github.com/${GITHUB_PROFILE_ID}`} target="_blank" rel="noreferrer">
