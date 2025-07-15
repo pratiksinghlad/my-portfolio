@@ -32,9 +32,7 @@ function Contact() {
             in modern web technologies, microservices, and cloud-native applications, I can help you
             build robust and future-proof applications.
           </p>
-          <p className="availability">
-            🟢 Available for freelance projects and technical consultations
-          </p>
+          <p>🟢 Available for freelance projects and technical consultations</p>
           <Box sx={{ display: "flex", gap: 2 }}>
             <Button
               variant="contained"
