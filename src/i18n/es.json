@@ -1,0 +1,61 @@
+{
+  "navigation": {
+    "expertise": "Experiencia",
+    "history": "Historial", 
+    "contact": "Contacto",
+    "menu": "Menú"
+  },
+  "main": {
+    "role": "Ingeniero Full Stack",
+    "tagline1": "🚀 Convirtiendo ideas en soluciones elegantes | Abierto a colaboraciones emocionantes",
+    "tagline2": "💡 Especializado en construir aplicaciones web escalables y microservicios",
+    "tagline3": "🤝Disponible para proyectos freelance y consultas técnicas"
+  },
+  "expertise": {
+    "title": "Experiencia",
+    "fullstack": {
+      "title": "Desarrollo Web Full Stack",
+      "description": "{{years}} años en Desarrollo Web Full Stack: Creo aplicaciones de nivel empresarial usando .NET, JS/TS, Angular, React, SQL Server y T-SQL. Experto certificado en Azure en soluciones en la nube, microservicios, Docker y Kubernetes.",
+      "techStack": "Stack tecnológico:"
+    },
+    "devops": {
+      "title": "DevOps y Automatización", 
+      "description": "Una vez que la aplicación está construida, ayudo a los clientes a configurar pruebas DevOps, pipelines de CI/CD y automatización de despliegue para apoyar un Go-Live exitoso.",
+      "techStack": "Stack tecnológico:"
+    }
+  },
+  "timeline": {
+    "title": "Historial Profesional",
+    "senior": {
+      "title": "Ingeniero de Software Senior",
+      "description": "Desarrollo Frontend y Backend, creando experiencias de usuario intuitivas, liderando equipos, refactorización e impulsando soluciones innovadoras en la nube.",
+      "period": "2021 - presente"
+    },
+    "executive": {
+      "title": "Asociado Ejecutivo",
+      "description": "Desarrollo Full-stack, Desarrollo de APIs, Experiencia de Usuario",
+      "period": "2020 - 2021"
+    },
+    "developer": {
+      "title": "Desarrollador de Software",
+      "description": "Desarrollo Full-stack trabajando en proyectos legacy, refactorización y desarrollo de nuevas funcionalidades",
+      "period": "2017 - 2019"
+    }
+  },
+  "contact": {
+    "title": "Creemos Algo Increíble",
+    "description1": "¿Listo para dar vida a tu visión? Con experiencia en desarrollo full-stack y arquitectura en la nube, transformo ideas complejas en soluciones elegantes y escalables. Especializado en tecnologías web modernas, microservicios y aplicaciones nativas en la nube, puedo ayudarte a construir aplicaciones robustas y a prueba de futuro.",
+    "description2": "🟢 Disponible para proyectos freelance y consultas técnicas",
+    "startConversation": "Iniciar una Conversación",
+    "viewResume": "Ver Currículum"
+  },
+  "footer": {
+    "portfolioText": "Mi portafolio personal",
+    "copyright": "© {{year}}"
+  },
+  "languages": {
+    "english": "English",
+    "spanish": "Español",
+    "hindi": "हिंदी"
+  }
+}

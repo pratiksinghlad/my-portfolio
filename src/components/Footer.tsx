@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
@@ -7,6 +8,7 @@ import { LINKEDIN_PROFILE_ID, GITHUB_PROFILE_ID, X_PROFILE_ID, MY_NAME } from ".
 const currentYear: number = new Date().getFullYear();
 
 function Footer() {
+  const { t } = useTranslation();
   return (
     <footer>
       <div>
@@ -25,7 +27,7 @@ function Footer() {
         </a>
       </div>
       <p>
-        My personal portfolio{" "}
+        {t("footer.portfolioText")}{" "}
         <a
           href={`https://github.com/${GITHUB_PROFILE_ID}/my-portfolio`}
           target="_blank"
@@ -33,7 +35,7 @@ function Footer() {
         >
           {MY_NAME}
         </a>{" "}
-        © {currentYear}
+        {t("footer.copyright", { year: currentYear })}
       </p>
     </footer>
   );
