@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
+import "./i18n/i18n";
 
 // Obfuscate Cloudflare Web Analytics token using base64 encoding
 if (import.meta.env.PROD) {

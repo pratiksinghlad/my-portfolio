@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -15,17 +16,20 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const drawerWidth = 240;
-const navItems = [
-  ["Expertise", "expertise"],
-  ["History", "history"],
-  ["Contact", "contact"],
-];
 
 // eslint-disable-next-line
 function Navigation({ parentToChild, modeChange }: any) {
   const { mode } = parentToChild;
+  const { t } = useTranslation();
+
+  const navItems = [
+    [t("navigation.expertise"), "expertise"],
+    [t("navigation.history"), "history"],
+    [t("navigation.contact"), "contact"],
+  ];
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -68,7 +72,7 @@ function Navigation({ parentToChild, modeChange }: any) {
     >
       <p className="mobile-menu-top">
         <ListIcon />
-        Menu
+        {t("navigation.menu")}
       </p>
       <Divider />
       <List>
@@ -112,6 +116,9 @@ function Navigation({ parentToChild, modeChange }: any) {
                 {item[0]}
               </Button>
             ))}
+          </Box>
+          <Box sx={{ marginLeft: "auto" }}>
+            <LanguageSwitcher />
           </Box>
         </Toolbar>
       </AppBar>

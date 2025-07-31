@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
@@ -5,6 +6,7 @@ import "../assets/styles/Main.scss";
 import { LINKEDIN_PROFILE_ID, GITHUB_PROFILE_ID, X_PROFILE_ID, MY_NAME } from "../utils/constants";
 
 function Main() {
+  const { t } = useTranslation();
   return (
     <div className="container">
       <div className="about-section">
@@ -29,10 +31,10 @@ function Main() {
           </div>
 
           <h2>{MY_NAME}</h2>
-          <p>Full Stack Engineer</p>
-          <p>🚀 Turning ideas into elegant solutions | Open for exciting collaborations</p>
-          <p>💡 Specialized in building scalable web applications and microservices</p>
-          <p>🤝Available for freelance projects and technical consultations</p>
+          <p>{t("main.role")}</p>
+          <p>{t("main.tagline1")}</p>
+          <p>{t("main.tagline2")}</p>
+          <p>{t("main.tagline3")}</p>
 
           <div className="mobile_social_icons">
             <a href={`https://github.com/${GITHUB_PROFILE_ID}`} target="_blank" rel="noreferrer">
