@@ -6,6 +6,11 @@ import MenuItem from "@mui/material/MenuItem";
 import LanguageIcon from "@mui/icons-material/Language";
 import Box from "@mui/material/Box";
 
+// Constants for better code maintainability
+// Unicode offset for regional indicator symbols (used to create flag emojis)
+const UNICODE_FLAG_OFFSET = 127397;
+const BUTTON_WIDTH = "80px";
+
 // Using proper country codes for consistent display
 const languages = [
   { code: "en", name: "English", countryCode: "US", displayCode: "EN" },
@@ -19,7 +24,7 @@ const FlagIcon = ({ countryCode }: { countryCode: string }) => {
   const flag = countryCode
     .toUpperCase()
     .split("")
-    .map((char) => String.fromCodePoint(127397 + char.charCodeAt(0)))
+    .map((char) => String.fromCodePoint(UNICODE_FLAG_OFFSET + char.charCodeAt(0)))
     .join("");
 
   return (
@@ -90,8 +95,8 @@ function LanguageSwitcher() {
         startIcon={<LanguageIcon />}
         sx={{
           color: "#fff",
-          minWidth: "80px", // Fixed width to prevent layout shift
-          width: "80px", // Consistent width
+          minWidth: BUTTON_WIDTH, // Fixed width to prevent layout shift
+          width: BUTTON_WIDTH, // Consistent width
           justifyContent: "flex-start",
           paddingLeft: "8px",
           paddingRight: "8px",
