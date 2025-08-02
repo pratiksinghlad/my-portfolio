@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -17,74 +17,94 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useDebounce } from "../hooks/usePerformance";
 
 const drawerWidth = 240;
 
-// eslint-disable-next-line
-function Navigation({ parentToChild, modeChange }: any) {
+interface NavigationProps {
+  parentToChild: { mode: string };
+  modeChange: () => void;
+}
+
+function Navigation({ parentToChild, modeChange }: NavigationProps) {
   const { mode } = parentToChild;
   const { t } = useTranslation();
 
-  const navItems = [
-    [t("navigation.expertise"), "expertise"],
-    [t("navigation.history"), "history"],
-    [t("navigation.contact"), "contact"],
-  ];
+  // Memoize navigation items to prevent unnecessary re-renders
+  const navItems = useMemo(
+    () => [
+      [t("navigation.expertise"), "expertise"],
+      [t("navigation.history"), "history"],
+      [t("navigation.contact"), "contact"],
+    ],
+    [t],
+  );
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [scrollY, setScrollY] = useState<number>(0);
 
-  const handleDrawerToggle = () => {
+  // Debounce scroll value for better performance
+  const debouncedScrollY = useDebounce(scrollY, 10);
+  const scrolled = debouncedScrollY > 100;
+
+  const handleDrawerToggle = useCallback(() => {
     setMobileOpen((prevState) => !prevState);
-  };
+  }, []);
+
+  // Optimize scroll handler with requestAnimationFrame
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const navbar = document.getElementById("navigation");
-      if (navbar) {
-        const isScrolled = window.scrollY > navbar.clientHeight;
-        setScrolled(isScrolled);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const scrollToSection = (section: string) => {
-    console.log(section);
-    const expertiseElement = document.getElementById(section);
-    if (expertiseElement) {
-      expertiseElement.scrollIntoView({ behavior: "smooth" });
-      console.log("Scrolling to:", expertiseElement); // Debugging: Ensure the element is found
-    } else {
-      console.error('Element with id "expertise" not found'); // Debugging: Log error if element is not found
+  // Optimize scroll to section with useCallback
+  const scrollToSection = useCallback((section: string) => {
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  };
+  }, []);
 
-  const drawer = (
-    <Box
-      className="navigation-bar-responsive"
-      onClick={handleDrawerToggle}
-      sx={{ textAlign: "center" }}
-    >
-      <p className="mobile-menu-top">
-        <ListIcon />
-        {t("navigation.menu")}
-      </p>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item[0]} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }} onClick={() => scrollToSection(item[1])}>
-              <ListItemText primary={item[0]} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+  // Memoize drawer content to prevent unnecessary re-renders
+  const drawer = useMemo(
+    () => (
+      <Box
+        className="navigation-bar-responsive"
+        onClick={handleDrawerToggle}
+        sx={{ textAlign: "center" }}
+      >
+        <p className="mobile-menu-top">
+          <ListIcon />
+          {t("navigation.menu")}
+        </p>
+        <Divider />
+        <List>
+          {navItems.map((item) => (
+            <ListItem key={item[0]} disablePadding>
+              <ListItemButton sx={{ textAlign: "center" }} onClick={() => scrollToSection(item[1])}>
+                <ListItemText primary={item[0]} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    ),
+    [handleDrawerToggle, navItems, scrollToSection, t],
   );
 
   return (

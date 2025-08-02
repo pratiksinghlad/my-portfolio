@@ -4,8 +4,24 @@ import "./index.scss";
 import App from "./App";
 import "./i18n/i18n";
 
+// Performance monitoring for development
+if (import.meta.env.DEV) {
+  // Add performance observer for development
+  if ("PerformanceObserver" in window) {
+    const observer = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      entries.forEach((entry) => {
+        if (entry.entryType === "measure") {
+          console.log(`Performance: ${entry.name} took ${entry.duration}ms`);
+        }
+      });
+    });
+    observer.observe({ entryTypes: ["measure", "navigation"] });
+  }
+}
+
 // Obfuscate Cloudflare Web Analytics token using base64 encoding
-if (import.meta.env.PROD) {
+if (import.meta.env.PROD && import.meta.env.VITE_CLOUDFLARE_TOKEN) {
   const script = document.createElement("script");
   script.defer = true;
   script.src = "https://static.cloudflareinsights.com/beacon.min.js";
@@ -16,7 +32,12 @@ if (import.meta.env.PROD) {
   document.head.appendChild(script);
 }
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+// Optimize React rendering
+const rootElement = document.getElementById("root") as HTMLElement;
+const root = ReactDOM.createRoot(rootElement);
+
+// Enable concurrent features for better performance
+root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
