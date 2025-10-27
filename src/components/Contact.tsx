@@ -12,7 +12,7 @@ function Contact() {
   };
 
   const handleDownload = () => {
-    const fileId = "1lPWbnOhRc4LCah6EHNKr9rQrGif3nJ6z/view?usp=sharing";
+    const fileId = "11_KgYRSWK7HNRj2MFWpi37PfDZjYv9wW";
     const resumeUrl = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
 
     const link = document.createElement("a");
