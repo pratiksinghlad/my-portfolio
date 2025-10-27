@@ -11,7 +11,7 @@ if (import.meta.env.PROD) {
   script.src = "https://static.cloudflareinsights.com/beacon.min.js";
   script.setAttribute(
     "data-cf-beacon",
-    JSON.stringify({ token: atob(import.meta.env.VITE_CLOUDFLARE_TOKEN) }),
+    JSON.stringify({ token: import.meta.env.VITE_CLOUDFLARE_TOKEN }),
   );
   document.head.appendChild(script);
 }
