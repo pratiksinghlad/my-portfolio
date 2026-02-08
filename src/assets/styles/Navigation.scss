@@ -41,6 +41,18 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: $spacing-xl;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 24px;
+  background-color: rgba($color-text-muted, 0.2);
+
+  [data-theme="light"] & {
+    background-color: rgba($color-text-muted, 0.3);
+  }
 }
 
 .theme-toggle {
@@ -109,16 +121,18 @@
     }
 
     &:hover {
-      color: white;
+      color: $color-text-primary;
       &::after {
         width: 100%;
       }
     }
 
     &.active {
-      color: white;
+      color: $color-accent;
+      font-weight: 700;
       &::after {
         width: 100%;
+        background-color: $color-accent;
       }
     }
   }
@@ -172,6 +186,12 @@
       color: $color-text-primary;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       padding-bottom: $spacing-sm;
+
+      &.active {
+        color: $color-accent;
+        padding-left: $spacing-sm;
+        border-left: 3px solid $color-accent;
+      }
 
       &:hover {
         color: $color-accent;

@@ -13,7 +13,7 @@ function Main() {
       <div className="hero-section">
         <div className="hero-content fade-in">
           <h1 className="hero-title">
-            Hi, I&apos;m <span className="text-accent">{MY_NAME}</span>
+            {t("main.greeting")} <span className="text-accent">{MY_NAME}</span>
           </h1>
           <h2 className="hero-subtitle">{t("main.role")}</h2>
           <p className="hero-description">
@@ -34,7 +34,7 @@ function Main() {
               href={`https://github.com/${GITHUB_PROFILE_ID}`}
               target="_blank"
               rel="noreferrer"
-              aria-label="GitHub"
+              aria-label={t("social.github")}
             >
               <GitHubIcon fontSize="large" />
             </a>
@@ -42,13 +42,11 @@ function Main() {
               href={`https://www.linkedin.com/in/${LINKEDIN_PROFILE_ID}`}
               target="_blank"
               rel="noreferrer"
-              aria-label="LinkedIn"
+              aria-label={t("social.linkedin")}
             >
               <LinkedInIcon fontSize="large" />
             </a>
-            <a href="mailto:contact@example.com" aria-label="Email">
-              {" "}
-              {/* Update email with real one if available */}
+            <a href="mailto:pratiklad96@gmail.com" aria-label={t("social.email")}>
               <EmailIcon fontSize="large" />
             </a>
           </div>

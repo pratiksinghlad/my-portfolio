@@ -9,10 +9,11 @@ import "../assets/styles/Navigation.scss";
 
 // Simple navigation links config with translation keys
 const navLinks = [
-  { name: "navigation.expertise", href: "#expertise" },
+  { name: "navigation.home", href: "#home" },
+  { name: "navigation.expertise", href: "#skills" },
   { name: "navigation.history", href: "#experience" },
-  { name: "navigation.contact", href: "#contact" },
   { name: "navigation.projects", href: "#projects" },
+  { name: "navigation.contact", href: "#contact" },
 ];
 
 function Navigation() {
@@ -20,14 +21,39 @@ function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [activeSegment, setActiveSegment] = useState("home");
 
-  // Handle scroll effect
+  // Handle scroll and active section
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
+    const options = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSegment(entry.target.id);
+        }
+      });
+    }, options);
+
+    const sections = ["home", "skills", "experience", "projects", "contact"];
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   // Handle theme effect
@@ -64,13 +90,22 @@ function Navigation() {
           </div>
 
           <div className="nav-center desktop-only">
+            <div className="nav-divider"></div>
             <div className="nav-links">
-              {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="nav-link">
-                  {t(link.name)}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSegment === link.href.substring(1);
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`nav-link ${isActive ? "active" : ""}`}
+                  >
+                    {link.name.includes(".") ? t(link.name) : link.name}
+                  </a>
+                );
+              })}
             </div>
+            <div className="nav-divider"></div>
           </div>
 
           <div className="nav-right">
@@ -91,11 +126,19 @@ function Navigation() {
           <CloseIcon fontSize="large" />
         </div>
         <div className="mobile-links">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} onClick={handleLinkClick}>
-              {t(link.name)}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSegment === link.href.substring(1);
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={handleLinkClick}
+                className={isActive ? "active" : ""}
+              >
+                {link.name.includes(".") ? t(link.name) : link.name}
+              </a>
+            );
+          })}
         </div>
       </div>
     </>

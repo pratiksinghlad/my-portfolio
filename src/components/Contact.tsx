@@ -19,7 +19,15 @@ function Contact() {
   return (
     <div id="contact" className="container fade-in">
       <div className="contact-wrapper">
-        <h1 className="section-title">{t("contact.title")}</h1>
+        <h1 className="section-title">
+          {t("contact.title")
+            .split(" ")
+            .map((word: string, i: number, arr: string[]) => (
+              <span key={i} className={i === arr.length - 1 ? "text-accent" : ""}>
+                {word}{" "}
+              </span>
+            ))}
+        </h1>
         <p>{t("contact.description1")}</p>
 
         <div className="contact-actions">

@@ -1,56 +1,83 @@
+import { useTranslation } from "react-i18next";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LaunchIcon from "@mui/icons-material/Launch";
 import "../assets/styles/Projects.scss";
 
-// Dummy project data - user should replace with real data
 const projects = [
   {
-    id: 1,
-    title: "E-Commerce Platform",
-    role: "Full Stack Architect",
-    description: "A scalable e-commerce solution with real-time inventory management, payment gateway integration, and admin dashboard.",
-    technologies: ["React", "Node.js", "MongoDB", "Redux", "Stripe API"],
-    image: "/images/project1.jpg", // Placeholder
-    link: "#",
-    github: "#"
+    id: "pdfOnline",
+    technologies: ["React", "TypeScript", "Vite", "pdf-lib", "Web Workers", "Chakra UI"],
+    github: "https://github.com/pratiksinghlad/pdf-online",
+    link: "https://pratiksinghlad.github.io/pdf-online/",
   },
   {
-    id: 2,
-    title: "Task Management SaaS",
-    role: "Lead Developer",
-    description: "Collaborative task management tool with drag-and-drop interface, real-time updates via WebSockets, and team workspaces.",
-    technologies: ["Next.js", "Firebase", "Tailwind CSS", "TypeScript"],
-    image: "/images/project2.jpg",
-    link: "#",
-    github: "#"
+    id: "jsonToAnything",
+    technologies: ["TypeScript", "SCSS", "HTML", "JavaScript"],
+    github: "https://github.com/pratiksinghlad/json-to-anything",
+    link: "https://pratiksinghlad.github.io/json-to-anything/",
   },
   {
-    id: 3,
-    title: "AI Content Generator",
-    role: "Frontend Engineer",
-    description: "Interface for an AI-powered content generation tool, featuring rich text editing and export capabilities.",
-    technologies: ["Vue.js", "Python", "Flask", "OpenAI API"],
-    image: "/images/project3.jpg",
-    link: "#",
-    github: "#"
-  }
+    id: "cqrsPattern",
+    technologies: ["C#", ".NET 9", "MySQL", "Docker"],
+    github: "https://github.com/pratiksinghlad/CQRSPatternApi",
+  },
 ];
 
 function Projects() {
+  const { t } = useTranslation();
+
   return (
     <div id="projects">
       <div className="container fade-in">
-        <h1 className="section-title">Featured <span className="text-accent">Projects</span></h1>
-        
+        <h1 className="section-title">
+          {t("projects.title") &&
+            t("projects.title")
+              .split(" ")
+              .map((word: string, i: number, arr: string[]) => (
+                <span key={i} className={i === arr.length - 1 ? "text-accent" : ""}>
+                  {word}{" "}
+                </span>
+              ))}
+        </h1>
+
         <div className="projects-grid">
           {projects.map((project) => (
             <div className="project-card" key={project.id}>
               <div className="project-content">
-                <h3>{project.title}</h3>
-                <span className="project-role">{project.role}</span>
-                <p>{project.description}</p>
-                <div className="project-tech">
-                  {project.technologies.map((tech) => (
-                    <span key={tech}>{tech}</span>
-                  ))}
+                <div className="project-header">
+                  <h3>{t(`projects.items.${project.id}.title`)}</h3>
+                </div>
+
+                <span className="project-role">{t(`projects.items.${project.id}.role`)}</span>
+                <p>{t(`projects.items.${project.id}.description`)}</p>
+
+                <div className="project-footer">
+                  <div className="project-tech">
+                    {project.technologies.map((tech) => (
+                      <span key={tech}>{tech}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-links">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="GitHub Repository"
+                    >
+                      <GitHubIcon />
+                    </a>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Live Demo"
+                      >
+                        <LaunchIcon />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

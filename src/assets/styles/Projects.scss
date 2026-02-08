@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 #projects {
   padding: $spacing-3xl 0;
@@ -9,7 +9,7 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: $spacing-xl;
   margin-top: $spacing-xl;
-  
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -31,57 +31,10 @@
   }
 }
 
+// Image section is now secondary or removed if not needed,
+// but let's keep it for visual structure if user adds images later
 .project-image {
-  width: 100%;
-  height: 200px;
-  background-color: #2a3441; // Placeholder color
-  position: relative;
-  overflow: hidden;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  &:hover img {
-    transform: scale(1.05);
-  }
-  
-  .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-    
-    .project-links {
-      display: flex;
-      gap: $spacing-md;
-    }
-    
-    a {
-      padding: $spacing-sm $spacing-md;
-      background-color: white;
-      color: $color-bg;
-      border-radius: $radius-sm;
-      font-weight: 600;
-      font-size: 0.875rem;
-      
-      &:hover {
-        background-color: $color-accent;
-        color: white;
-      }
-    }
-  }
-
-  &:hover .project-overlay {
-    opacity: 1;
-  }
+  display: none; // Hiding for now as user didn't provide images
 }
 
 .project-content {
@@ -90,40 +43,97 @@
   display: flex;
   flex-direction: column;
 
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: $spacing-xs;
-    color: $color-text-primary;
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-sm;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $color-text-primary;
+      margin: 0;
+    }
+
+    .open-source-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      background-color: rgba($color-accent-rgb, 0.15);
+      color: $color-accent-light;
+      border: 1px solid rgba($color-accent-rgb, 0.3);
+      border-radius: $radius-full;
+      font-weight: 600;
+    }
   }
 
   .project-role {
-    font-size: 0.875rem;
-    color: $color-accent;
+    font-size: 0.9rem;
+    color: $color-text-muted;
     margin-bottom: $spacing-md;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: $color-text-secondary;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-xl;
     line-height: 1.6;
     flex: 1;
+  }
+
+  .project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: $spacing-md;
   }
 
   .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: $spacing-xs;
-    margin-top: auto;
+    flex: 1;
 
     span {
       font-size: 0.75rem;
-      padding: 0.2rem 0.5rem;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: $radius-sm;
+      padding: 4px 10px;
+      background-color: rgba(var(--color-bg-rgb), 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: $radius-md;
       color: $color-text-muted;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  .project-links {
+    display: flex;
+    gap: $spacing-sm;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-full;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: $color-text-secondary;
+      transition: $transition-base;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      &:hover {
+        background-color: $color-accent;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: $shadow-glow;
+      }
+
+      svg {
+        font-size: 1.25rem;
+      }
     }
   }
 }

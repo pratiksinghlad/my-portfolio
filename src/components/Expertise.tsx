@@ -28,7 +28,15 @@ function Expertise() {
   return (
     <div className="container" id="skills">
       <div className="skills-container fade-in">
-        <h1 className="section-title">{t("expertise.title")}</h1>
+        <h1 className="section-title">
+          {t("expertise.title")
+            .split(" ")
+            .map((word: string, i: number, arr: string[]) => (
+              <span key={i} className={i === arr.length - 1 ? "text-accent" : ""}>
+                {word}{" "}
+              </span>
+            ))}
+        </h1>
 
         <div className="skills-grid">
           {skillsData.map((skill) => (
