@@ -6,62 +6,13 @@ import MenuItem from "@mui/material/MenuItem";
 import LanguageIcon from "@mui/icons-material/Language";
 import Box from "@mui/material/Box";
 
-// Constants for better code maintainability
-// Unicode offset for regional indicator symbols (used to create flag emojis)
-const UNICODE_FLAG_OFFSET = 127397;
 const BUTTON_WIDTH = "80px";
 
-// Using proper country codes for consistent display
 const languages = [
-  { code: "en", name: "English", countryCode: "US", displayCode: "EN" },
-  { code: "es", name: "Español", countryCode: "ES", displayCode: "ES" },
-  { code: "hi", name: "हिंदी", countryCode: "IN", displayCode: "HI" },
+  { code: "en", name: "English", countryCode: "US", displayCode: "Eng" },
+  { code: "es", name: "Español", countryCode: "ES", displayCode: "Esp" },
+  { code: "hi", name: "हिंदी", countryCode: "IN", displayCode: "हिं" },
 ];
-
-// Flag component using CSS to display flag emojis consistently
-const FlagIcon = ({ countryCode }: { countryCode: string }) => {
-  // Convert country code to flag emoji using Unicode regional indicator symbols
-  const flag = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => String.fromCodePoint(UNICODE_FLAG_OFFSET + char.charCodeAt(0)))
-    .join("");
-
-  return (
-    <Box
-      component="span"
-      sx={{
-        fontSize: "16px",
-        minWidth: "24px",
-        height: "16px",
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
-        // Ensure consistent rendering across browsers
-        fontFeatureSettings: '"liga" off',
-        fontVariantEmoji: "emoji",
-        WebkitFontSmoothing: "antialiased",
-        // Fallback styling
-        backgroundColor: "transparent",
-        borderRadius: "2px",
-        position: "relative",
-        "&::before": {
-          content: `"${flag}"`,
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          fontSize: "16px",
-          lineHeight: 1,
-        },
-      }}
-      title={`${countryCode} Flag`}
-    >
-      {flag}
-    </Box>
-  );
-};
 
 function LanguageSwitcher() {
   const { i18n } = useTranslation();
@@ -95,14 +46,17 @@ function LanguageSwitcher() {
         startIcon={<LanguageIcon />}
         sx={{
           color: "inherit",
-          minWidth: BUTTON_WIDTH, // Fixed width to prevent layout shift
-          width: BUTTON_WIDTH, // Consistent width
+          minWidth: BUTTON_WIDTH,
+          width: "auto",
           justifyContent: "flex-start",
           paddingLeft: "8px",
           paddingRight: "8px",
+          textTransform: "none",
+          fontWeight: 600,
+          fontSize: "0.9rem",
         }}
       >
-        <FlagIcon countryCode={currentLanguage.countryCode} />
+        {currentLanguage.displayCode}
       </Button>
       <Menu
         id="language-menu"
@@ -113,9 +67,12 @@ function LanguageSwitcher() {
           "aria-labelledby": "language-button",
         }}
         sx={{
-          // Prevent menu from causing layout shift
           "& .MuiPaper-root": {
-            minWidth: "160px",
+            minWidth: "120px",
+            backgroundColor: "var(--color-bg-alt)",
+            color: "var(--color-text-primary)",
+            border: "1px solid rgba(255, 255, 255, 0.05)",
+            boxShadow: "var(--shadow-lg)",
           },
         }}
       >
@@ -127,10 +84,21 @@ function LanguageSwitcher() {
             sx={{
               display: "flex",
               alignItems: "center",
-              gap: "8px",
+              gap: "12px",
+              fontSize: "0.9rem",
+              padding: "8px 16px",
+              "&.Mui-selected": {
+                backgroundColor: "rgba(var(--color-accent-rgb), 0.15)",
+                color: "var(--color-accent-light)",
+                "&:hover": {
+                  backgroundColor: "rgba(var(--color-accent-rgb), 0.25)",
+                },
+              },
             }}
           >
-            <FlagIcon countryCode={language.countryCode} />
+            <Box component="span" sx={{ fontWeight: 700, minWidth: "28px" }}>
+              {language.displayCode}
+            </Box>
             <span>{language.name}</span>
           </MenuItem>
         ))}
