@@ -10,8 +10,8 @@ const currentYear: number = new Date().getFullYear();
 function Footer() {
   const { t } = useTranslation();
   return (
-    <footer>
-      <div>
+    <footer className="footer">
+      <div className="social-links">
         <a href={`https://github.com/${GITHUB_PROFILE_ID}`} target="_blank" rel="noreferrer">
           <GitHubIcon />
         </a>

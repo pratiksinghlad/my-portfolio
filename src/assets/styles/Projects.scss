@@ -1,0 +1,129 @@
+@use '../../styles/variables' as *;
+
+#projects {
+  padding: $spacing-3xl 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: $spacing-xl;
+  margin-top: $spacing-xl;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  background-color: $color-bg-alt;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: $transition-base;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-accent, 0.3);
+  }
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  background-color: #2a3441; // Placeholder color
+  position: relative;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
+  }
+  
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    
+    .project-links {
+      display: flex;
+      gap: $spacing-md;
+    }
+    
+    a {
+      padding: $spacing-sm $spacing-md;
+      background-color: white;
+      color: $color-bg;
+      border-radius: $radius-sm;
+      font-weight: 600;
+      font-size: 0.875rem;
+      
+      &:hover {
+        background-color: $color-accent;
+        color: white;
+      }
+    }
+  }
+
+  &:hover .project-overlay {
+    opacity: 1;
+  }
+}
+
+.project-content {
+  padding: $spacing-lg;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: $spacing-xs;
+    color: $color-text-primary;
+  }
+
+  .project-role {
+    font-size: 0.875rem;
+    color: $color-accent;
+    margin-bottom: $spacing-md;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-lg;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    margin-top: auto;
+
+    span {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: $radius-sm;
+      color: $color-text-muted;
+    }
+  }
+}

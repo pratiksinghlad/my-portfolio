@@ -1,58 +1,54 @@
-import "@fortawesome/free-regular-svg-icons";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faReact, faDocker, faMicrosoft } from "@fortawesome/free-brands-svg-icons";
-import Chip from "@mui/material/Chip";
+import { faDocker } from "@fortawesome/free-brands-svg-icons";
+import { faCode, faServer } from "@fortawesome/free-solid-svg-icons";
 import "../assets/styles/Expertise.scss";
 
-const labelsSkill = [
-  ".Net",
-  "Angular",
-  "Azure",
-  "AWS",
-  "Docker",
-  "React",
-  "TypeScript",
-  "JavaScript",
-  "SQL",
-  "MSSQL",
+const skillsData = [
+  {
+    key: "fullstack",
+    icon: faCode,
+    techStack: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Redux", "HTML5/CSS3"],
+  },
+  {
+    key: "backend",
+    icon: faServer,
+    techStack: ["Node.js", "Express", ".NET Core", "GraphQL", "PostgreSQL", "MongoDB"],
+  },
+  {
+    key: "devops",
+    icon: faDocker,
+    techStack: ["AWS", "Azure", "Docker", "Kubernetes", "CI/CD", "Terraform"],
+  },
 ];
-
-const labelsDevops = ["Git", "Docker", "AWS", "Azure", "Linux"];
-
-const exprienceYear = new Date().getFullYear() - 2017;
 
 function Expertise() {
   const { t } = useTranslation();
-  return (
-    <div className="container" id="expertise">
-      <div className="skills-container">
-        <h1>{t("expertise.title")}</h1>
-        <div className="skills-grid">
-          <div className="skill">
-            <FontAwesomeIcon icon={faMicrosoft} size="3x" style={{ padding: "3px" }} />
-            <FontAwesomeIcon icon={faReact} size="3x" style={{ padding: "3px" }} />
-            <h3>{t("expertise.fullstack.title")}</h3>
-            <p>{t("expertise.fullstack.description", { years: exprienceYear })}</p>
-            <div className="flex-chips">
-              <span className="chip-title">{t("expertise.fullstack.techStack")}</span>
-              {labelsSkill.map((label, index) => (
-                <Chip key={index} className="chip" label={label} />
-              ))}
-            </div>
-          </div>
 
-          <div className="skill">
-            <FontAwesomeIcon icon={faDocker} size="3x" />
-            <h3>{t("expertise.devops.title")}</h3>
-            <p>{t("expertise.devops.description")}</p>
-            <div className="flex-chips">
-              <span className="chip-title">{t("expertise.devops.techStack")}</span>
-              {labelsDevops.map((label, index) => (
-                <Chip key={index} className="chip" label={label} />
-              ))}
+  return (
+    <div className="container" id="skills">
+      <div className="skills-container fade-in">
+        <h1 className="section-title">{t("expertise.title")}</h1>
+
+        <div className="skills-grid">
+          {skillsData.map((skill) => (
+            <div className="skill-card" key={skill.key}>
+              <div className="skill-header">
+                <div className="skill-icon">
+                  <FontAwesomeIcon icon={skill.icon} />
+                </div>
+                <h3>{t(`expertise.${skill.key}.title`)}</h3>
+              </div>
+              <p>{t(`expertise.${skill.key}.description`, { years: 5 })}</p>
+              <div className="skill-tags">
+                {skill.techStack.map((tech) => (
+                  <span className="tech-tag" key={tech}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

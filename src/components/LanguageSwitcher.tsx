@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -68,7 +68,7 @@ function LanguageSwitcher() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -94,7 +94,7 @@ function LanguageSwitcher() {
         onClick={handleClick}
         startIcon={<LanguageIcon />}
         sx={{
-          color: "#fff",
+          color: "inherit",
           minWidth: BUTTON_WIDTH, // Fixed width to prevent layout shift
           width: BUTTON_WIDTH, // Consistent width
           justifyContent: "flex-start",

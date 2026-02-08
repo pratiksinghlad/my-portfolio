@@ -1,15 +1,17 @@
 {
   "navigation": {
     "expertise": "Expertise",
-    "history": "History", 
+    "history": "History",
     "contact": "Contact",
+    "projects": "Projects",
     "menu": "Menu"
   },
   "main": {
     "role": "Full Stack Engineer",
     "tagline1": "🚀 Turning ideas into elegant solutions | Open for exciting collaborations",
     "tagline2": "💡 Specialized in building scalable web applications and microservices",
-    "tagline3": "🤝Available for freelance projects and technical consultations"
+    "tagline3": "🤝Available for freelance projects and technical consultations",
+    "viewProjects": "View Projects"
   },
   "expertise": {
     "title": "Expertise",
@@ -18,8 +20,13 @@
       "description": "{{years}} years in Full Stack Web Dev: I craft enterprise-grade apps using .NET, JS/TS, Angular, React, SQL Server & T-SQL. Azure Certified expert in cloud solutions, microservices, Docker & Kubernetes.",
       "techStack": "Tech stack:"
     },
+    "backend": {
+      "title": "Backend & API Development",
+      "description": "Designing scalable microservices, REST APIs, and robust database architectures using Node.js and .NET.",
+      "techStack": "Tech stack:"
+    },
     "devops": {
-      "title": "DevOps & Automation", 
+      "title": "DevOps & Automation",
       "description": "Once the application is built, I help clients set up DevOps testing, CI/CD pipelines, and deployment automation to support the successful Go-Live.",
       "techStack": "Tech stack:"
     }

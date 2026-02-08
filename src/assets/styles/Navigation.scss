@@ -1,0 +1,197 @@
+@use "../../styles/variables" as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: $spacing-md 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background-color: transparent;
+
+  &.scrolled {
+    background-color: rgba($color-bg, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: $spacing-sm 0;
+    box-shadow: $shadow-sm;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // Constraints max-width same as global container but allows flex inside
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.theme-toggle {
+  color: $color-text-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xs;
+  border-radius: $radius-md;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: rgba($color-accent, 0.1);
+    color: $color-accent;
+  }
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+
+  .brand-icon {
+    height: 32px;
+    width: auto;
+    margin-right: $spacing-sm; // Space if text is added later
+    filter: brightness(1.2); // Make it pop a bit
+
+    [data-theme="light"] & {
+      filter: none;
+    }
+  }
+
+  span {
+    color: $color-accent;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: $spacing-xl;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: none; // Hiden on mobile, use mobile menu
+  }
+
+  a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: $color-text-secondary;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: $color-accent;
+      transition: width 0.2s ease;
+    }
+
+    &:hover {
+      color: white;
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.active {
+      color: white;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.nav-mobile-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: $color-text-primary;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+// Mobile Menu Overlay
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 300px;
+  background-color: $color-bg-alt;
+  padding: $spacing-2xl $spacing-lg;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1001;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .close-icon {
+    position: absolute;
+    top: $spacing-lg;
+    right: $spacing-lg;
+    cursor: pointer;
+  }
+
+  .mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin-top: $spacing-xl;
+
+    a {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $color-text-primary;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: $spacing-sm;
+
+      &:hover {
+        color: $color-accent;
+        padding-left: $spacing-sm; // slight indent on hover
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
