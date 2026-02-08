@@ -10,19 +10,30 @@ const currentYear: number = new Date().getFullYear();
 function Footer() {
   const { t } = useTranslation();
   return (
-    <footer>
-      <div>
-        <a href={`https://github.com/${GITHUB_PROFILE_ID}`} target="_blank" rel="noreferrer">
+    <footer className="footer">
+      <div className="social-links">
+        <a
+          href={`https://github.com/${GITHUB_PROFILE_ID}`}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={t("social.github")}
+        >
           <GitHubIcon />
         </a>
         <a
           href={`https://www.linkedin.com/in/${LINKEDIN_PROFILE_ID}`}
           target="_blank"
           rel="noreferrer"
+          aria-label={t("social.linkedin")}
         >
           <LinkedInIcon />
         </a>
-        <a href={`https://x.com/${X_PROFILE_ID}`} target="_blank" rel="noreferrer">
+        <a
+          href={`https://x.com/${X_PROFILE_ID}`}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={t("social.x")}
+        >
           <XIcon />
         </a>
       </div>

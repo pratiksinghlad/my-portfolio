@@ -1,0 +1,139 @@
+@use "../../styles/variables" as *;
+
+#projects {
+  padding: $spacing-3xl 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: $spacing-xl;
+  margin-top: $spacing-xl;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  background-color: $color-bg-alt;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: $transition-base;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-accent, 0.3);
+  }
+}
+
+// Image section is now secondary or removed if not needed,
+// but let's keep it for visual structure if user adds images later
+.project-image {
+  display: none; // Hiding for now as user didn't provide images
+}
+
+.project-content {
+  padding: $spacing-lg;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-sm;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $color-text-primary;
+      margin: 0;
+    }
+
+    .open-source-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      background-color: rgba($color-accent-rgb, 0.15);
+      color: $color-accent-light;
+      border: 1px solid rgba($color-accent-rgb, 0.3);
+      border-radius: $radius-full;
+      font-weight: 600;
+    }
+  }
+
+  .project-role {
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    margin-bottom: $spacing-md;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-xl;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: $spacing-md;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    flex: 1;
+
+    span {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      background-color: rgba(var(--color-bg-rgb), 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: $radius-md;
+      color: $color-text-muted;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  .project-links {
+    display: flex;
+    gap: $spacing-sm;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-full;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: $color-text-secondary;
+      transition: $transition-base;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      &:hover {
+        background-color: $color-accent;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: $shadow-glow;
+      }
+
+      svg {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

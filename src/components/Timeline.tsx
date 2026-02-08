@@ -1,46 +1,40 @@
-import "@fortawesome/free-regular-svg-icons";
 import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import "../assets/styles/Timeline.scss";
+
+const experienceData = [
+  { id: 1, key: "senior" },
+  { id: 2, key: "executive" },
+  { id: 3, key: "developer" },
+];
 
 function Timeline() {
   const { t } = useTranslation();
+
   return (
-    <div id="history">
-      <div className="items-container">
-        <h1>{t("timeline.title")}</h1>
-        <VerticalTimeline>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date={t("timeline.senior.period")}
-            iconStyle={{ background: "#5000ca", color: "rgb(39, 40, 34)" }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
-          >
-            <h3 className="vertical-timeline-element-title">{t("timeline.senior.title")}</h3>
-            <p>{t("timeline.senior.description")}</p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date={t("timeline.executive.period")}
-            iconStyle={{ background: "#5000ca", color: "rgb(39, 40, 34)" }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
-          >
-            <h3 className="vertical-timeline-element-title">{t("timeline.executive.title")}</h3>
-            <p>{t("timeline.executive.description")}</p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date={t("timeline.developer.period")}
-            iconStyle={{ background: "#5000ca", color: "rgb(39, 40, 34)" }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
-          >
-            <h3 className="vertical-timeline-element-title">{t("timeline.developer.title")}</h3>
-            <p>{t("timeline.developer.description")}</p>
-          </VerticalTimelineElement>
-        </VerticalTimeline>
+    <div id="experience">
+      <div className="container fade-in">
+        <h1 className="section-title">
+          {t("timeline.professionalExperience")
+            .split(" ")
+            .map((word: string, i: number, arr: string[]) => (
+              <span key={i} className={i === arr.length - 1 ? "text-accent" : ""}>
+                {word}{" "}
+              </span>
+            ))}
+        </h1>
+
+        <div className="timeline-container">
+          {experienceData.map((item) => (
+            <div className="timeline-item" key={item.id}>
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <h3>{t(`timeline.${item.key}.title`)}</h3>
+                <span className="timeline-date">{t(`timeline.${item.key}.period`)}</span>
+                <p>{t(`timeline.${item.key}.description`)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

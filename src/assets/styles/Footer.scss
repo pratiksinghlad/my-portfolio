@@ -1,15 +1,48 @@
-footer {
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
+@use "../../styles/variables" as *;
 
-    svg {
-        width: 1.1em !important;
-        height: 1.1em !important;
-        margin-right: 10px;
-    }
+.footer {
+  padding: $spacing-2xl 0;
+  margin-top: $spacing-3xl;
+  margin-bottom: $spacing-lg; // Lift it from the absolute bottom
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg; // Consistent spacing between elements
 
-    p {
-        font-size: 0.8em;
+  p {
+    color: $color-text-secondary;
+    font-size: 0.95rem;
+    margin: 0;
+
+    a {
+      color: $color-accent;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-2xl; // More spacing between icons (spacise)
+
+    a {
+      color: $color-text-muted;
+      font-size: 1.5rem;
+      transition: $transition-base;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        color: $color-accent;
+        transform: translateY(-4px); // More pronounced hover
+      }
+    }
+  }
 }

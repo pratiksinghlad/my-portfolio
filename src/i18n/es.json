@@ -1,31 +1,41 @@
 {
   "navigation": {
+    "home": "Inicio",
     "expertise": "Experiencia",
-    "history": "Historial", 
+    "history": "Historial",
     "contact": "Contacto",
+    "projects": "Proyectos",
     "menu": "Menú"
   },
   "main": {
+    "greeting": "Hola, soy",
     "role": "Ingeniero Full Stack",
     "tagline1": "🚀 Convirtiendo ideas en soluciones elegantes | Abierto a colaboraciones emocionantes",
     "tagline2": "💡 Especializado en construir aplicaciones web escalables y microservicios",
-    "tagline3": "🤝Disponible para proyectos freelance y consultas técnicas"
+    "tagline3": "🤝Disponible para proyectos freelance y consultas técnicas",
+    "viewProjects": "Ver Proyectos"
   },
   "expertise": {
-    "title": "Experiencia",
+    "title": "Experiencia Técnica",
     "fullstack": {
       "title": "Desarrollo Web Full Stack",
       "description": "{{years}} años en Desarrollo Web Full Stack: Creo aplicaciones de nivel empresarial usando .NET, JS/TS, Angular, React, SQL Server y T-SQL. Experto certificado en Azure en soluciones en la nube, microservicios, Docker y Kubernetes.",
       "techStack": "Stack tecnológico:"
     },
+    "backend": {
+      "title": "Desarrollo Backend y API",
+      "description": "Diseño de microservicios escalables, APIs REST y arquitecturas de bases de datos robustas usando Node.js y .NET.",
+      "techStack": "Stack tecnológico:"
+    },
     "devops": {
-      "title": "DevOps y Automatización", 
+      "title": "DevOps y Automatización",
       "description": "Una vez que la aplicación está construida, ayudo a los clientes a configurar pruebas DevOps, pipelines de CI/CD y automatización de despliegue para apoyar un Go-Live exitoso.",
       "techStack": "Stack tecnológico:"
     }
   },
   "timeline": {
     "title": "Historial Profesional",
+    "professionalExperience": "Experiencia Profesional",
     "senior": {
       "title": "Ingeniero de Software Senior",
       "description": "Desarrollo Frontend y Backend, creando experiencias de usuario intuitivas, liderando equipos, refactorización e impulsando soluciones innovadoras en la nube.",
@@ -53,9 +63,37 @@
     "portfolioText": "Mi portafolio personal",
     "copyright": "© {{year}}"
   },
+  "projects": {
+    "title": "Proyectos destacados",
+    "viewProject": "Ver Proyecto",
+    "viewCode": "Ver Código",
+    "items": {
+      "pdfOnline": {
+        "title": "pdf-online",
+        "role": "Arquitecto Principal",
+        "description": "Potente manipulación de PDF en el navegador. Combina, comprime y convierte imágenes a PDF con máxima privacidad y rendimiento."
+      },
+      "jsonToAnything": {
+        "title": "json-to-anything",
+        "role": "Desarrollador Full Stack",
+        "description": "La utilidad JSON definitiva. Transforma, formatea, valida y convierte datos JSON a cualquier formato al instante."
+      },
+      "cqrsPattern": {
+        "title": "API de Patrón CQRS",
+        "role": "Ingeniero Backend",
+        "description": "API robusta de .NET 9 que implementa el patrón arquitectónico CQRS para una separación clara de comandos y consultas."
+      }
+    }
+  },
   "languages": {
     "english": "English",
     "spanish": "Español",
     "hindi": "हिंदी"
+  },
+  "social": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Correo electrónico",
+    "x": "X (Twitter)"
   }
 }

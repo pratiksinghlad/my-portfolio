@@ -1,15 +1,19 @@
 {
   "navigation": {
+    "home": "Home",
     "expertise": "Expertise",
-    "history": "History", 
+    "history": "History",
     "contact": "Contact",
+    "projects": "Projects",
     "menu": "Menu"
   },
   "main": {
+    "greeting": "Hi, I'm",
     "role": "Full Stack Engineer",
     "tagline1": "🚀 Turning ideas into elegant solutions | Open for exciting collaborations",
     "tagline2": "💡 Specialized in building scalable web applications and microservices",
-    "tagline3": "🤝Available for freelance projects and technical consultations"
+    "tagline3": "🤝Available for freelance projects and technical consultations",
+    "viewProjects": "View Projects"
   },
   "expertise": {
     "title": "Expertise",
@@ -18,14 +22,20 @@
       "description": "{{years}} years in Full Stack Web Dev: I craft enterprise-grade apps using .NET, JS/TS, Angular, React, SQL Server & T-SQL. Azure Certified expert in cloud solutions, microservices, Docker & Kubernetes.",
       "techStack": "Tech stack:"
     },
+    "backend": {
+      "title": "Backend & API Development",
+      "description": "Designing scalable microservices, REST APIs, and robust database architectures using Node.js and .NET.",
+      "techStack": "Tech stack:"
+    },
     "devops": {
-      "title": "DevOps & Automation", 
+      "title": "DevOps & Automation",
       "description": "Once the application is built, I help clients set up DevOps testing, CI/CD pipelines, and deployment automation to support the successful Go-Live.",
       "techStack": "Tech stack:"
     }
   },
   "timeline": {
     "title": "Career History",
+    "professionalExperience": "Professional Experience",
     "senior": {
       "title": "Senior Software Engineer",
       "description": "Frontend & Backend Development, crafting intuitive user experiences, leading teams, Refactoring, and driving innovative cloud solutions.",
@@ -53,9 +63,37 @@
     "portfolioText": "My personal portfolio",
     "copyright": "© {{year}}"
   },
+  "projects": {
+    "title": "Featured open source Projects",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "items": {
+      "pdfOnline": {
+        "title": "pdf-online",
+        "role": "Lead Architect",
+        "description": "Powerful in-browser PDF manipulation. Merge, compress, and convert images to PDF with maximum privacy and performance."
+      },
+      "jsonToAnything": {
+        "title": "json-to-anything",
+        "role": "Full Stack Developer",
+        "description": "The ultimate JSON utility. Transform, format, validate, and convert JSON data into any format you need instantly."
+      },
+      "cqrsPattern": {
+        "title": "CQRS Pattern API",
+        "role": "Backend Engineer",
+        "description": "Robust .NET 9 API implementing the CQRS architectural pattern for clean separation of commands and queries."
+      }
+    }
+  },
   "languages": {
     "english": "English",
     "spanish": "Español",
     "hindi": "हिंदी"
+  },
+  "social": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "x": "X (Twitter)"
   }
 }

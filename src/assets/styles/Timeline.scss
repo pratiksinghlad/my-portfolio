@@ -1,38 +1,125 @@
-.vertical-timeline span {
-    color: white;
-    font-family: 'Courier Prime', monospace;
+@use '../../styles/variables' as *;
+
+#experience {
+  padding: $spacing-3xl 0;
+  background-color: $color-bg;
 }
 
-.vertical-timeline p {
-    color: rgb(39, 40, 34);
-}
+.timeline-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: $spacing-xl 0;
 
-.vertical-timeline-element p {
-    color: rgb(39, 40, 34);
-}
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, $color-accent, rgba($color-accent, 0.1));
+    z-index: 0;
 
-.vertical-timeline-element h3 {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element h4 {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element span {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element .vertical-timeline-element-date {
-    color: white;
-}
-
-.svg-inline--fa {
-    color: white;
-}
-
-@media screen and (max-width: 1170px) {
-    .vertical-timeline-element .vertical-timeline-element-date {
-        color: rgb(39, 40, 34);
+    @media (max-width: 768px) {
+      left: 20px;
+      transform: none;
     }
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: $spacing-2xl;
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  padding-right: $spacing-xl;
+  clear: both;
+
+  &:nth-child(even) {
+    align-self: flex-end;
+    margin-left: auto;
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: $spacing-xl;
+    
+    .timeline-content {
+      text-align: left;
+    }
+    
+    .timeline-dot {
+      left: calc(-1 * (#{$spacing-xl} + 6px)); // Adjust based on spacing and dot size
+    }
+  }
+  
+  &:nth-child(odd) {
+    .timeline-dot {
+      right: calc(-1 * (#{$spacing-xl} + 6px));
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 0 !important;
+    padding-left: 50px !important;
+    padding-right: 0 !important;
+    justify-content: flex-start;
+    
+    .timeline-dot {
+      left: 14px !important; // Align with line at 20px
+      right: auto !important;
+    }
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background-color: $color-accent;
+  border-radius: 50%;
+  border: 4px solid $color-bg; // Creates gap effect
+  box-shadow: 0 0 0 2px $color-accent;
+  z-index: 2;
+}
+
+.timeline-content {
+  background-color: $color-bg-alt;
+  padding: $spacing-lg;
+  border-radius: $radius-lg;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: $shadow-md;
+  transition: $transition-base;
+  text-align: right;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-accent, 0.3);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  .timeline-date {
+    font-family: $font-mono;
+    font-size: 0.875rem;
+    color: $color-accent-light;
+    margin-bottom: $spacing-md;
+    display: block;
+  }
+
+  p {
+    color: $color-text-secondary;
+    font-size: 0.95rem;
+  }
 }
