@@ -40,7 +40,7 @@ function Footer() {
       <p>
         {t("footer.portfolioText")}{" "}
         <a
-          href={`https://github.com/${GITHUB_PROFILE_ID}/my-portfolio`}
+          href={`https://github.com/${GITHUB_PROFILE_ID}/pratiksinghlad.github.io`}
           target="_blank"
           rel="noreferrer"
         >

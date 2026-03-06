@@ -83,8 +83,8 @@ function Navigation() {
               {theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
             </button>
             <div className="nav-brand">
-              <a href="/">
-                <img src="./favicon.ico" alt="Pratik Lad logo" className="brand-icon" />
+              <a href={import.meta.env.BASE_URL}>
+                <img src={`${import.meta.env.BASE_URL}favicon.ico`} alt="Pratik Lad logo" className="brand-icon" />
               </a>
             </div>
           </div>
