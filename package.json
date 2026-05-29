@@ -26,7 +26,8 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0 --fix"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0 --fix",
+    "doctor": "npx react-doctor@latest"
   },
   "eslintConfig": {
     "extends": [
@@ -60,6 +61,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "gh-pages": "^6.3.0",
     "prettier": "^3.5.3",
+    "react-doctor": "^0.2.11",
     "typescript": "^5.8.3",
     "vite": "^7.3.1",
     "vite-plugin-checker": "0.7.2",

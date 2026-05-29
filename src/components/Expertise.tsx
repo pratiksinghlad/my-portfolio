@@ -32,7 +32,7 @@ function Expertise() {
           {t("expertise.title")
             .split(" ")
             .map((word: string, i: number, arr: string[]) => (
-              <span key={i} className={i === arr.length - 1 ? "text-accent" : ""}>
+              <span key={`${word}-${i}`} className={i === arr.length - 1 ? "text-accent" : ""}>
                 {word}{" "}
               </span>
             ))}

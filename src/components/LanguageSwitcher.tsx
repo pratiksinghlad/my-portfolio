@@ -19,7 +19,7 @@ function LanguageSwitcher() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleOpenMenu = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -42,7 +42,7 @@ function LanguageSwitcher() {
         aria-controls={open ? "language-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
+        onClick={handleOpenMenu}
         startIcon={<LanguageIcon />}
         sx={{
           color: "inherit",
