@@ -53,7 +53,11 @@ function Main() {
         </div>
 
         <div className="hero-image-wrapper fade-in">
-          <img src={`${import.meta.env.BASE_URL}images/profile_picture_icon.jpg`} alt={MY_NAME} className="hero-image" />
+          <img
+            src={`${import.meta.env.BASE_URL}images/profile_picture_icon.jpg`}
+            alt={MY_NAME}
+            className="hero-image"
+          />
         </div>
       </div>
     </div>

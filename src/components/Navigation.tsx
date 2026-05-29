@@ -49,7 +49,7 @@ function Navigation() {
       if (el) observer.observe(el);
     });
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
@@ -79,12 +79,21 @@ function Navigation() {
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-container container">
           <div className="nav-left">
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+              type="button"
+              aria-label="Toggle theme"
+            >
               {theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
             </button>
             <div className="nav-brand">
               <a href={import.meta.env.BASE_URL}>
-                <img src={`${import.meta.env.BASE_URL}favicon.ico`} alt="Pratik Lad logo" className="brand-icon" />
+                <img
+                  src={`${import.meta.env.BASE_URL}favicon.ico`}
+                  alt="Pratik Lad logo"
+                  className="brand-icon"
+                />
               </a>
             </div>
           </div>
@@ -112,19 +121,34 @@ function Navigation() {
             <div className="desktop-only">
               <LanguageSwitcher />
             </div>
-            <div className="nav-mobile-toggle" onClick={toggleMobileMenu}>
+            <button
+              className="nav-mobile-toggle"
+              onClick={toggleMobileMenu}
+              type="button"
+              aria-label="Open mobile menu"
+            >
               <MenuIcon fontSize="large" />
-            </div>
+            </button>
           </div>
         </div>
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`overlay ${mobileOpen ? "open" : ""}`} onClick={toggleMobileMenu}></div>
+      <button
+        className={`overlay ${mobileOpen ? "open" : ""}`}
+        onClick={toggleMobileMenu}
+        type="button"
+        aria-label="Close mobile menu overlay"
+      ></button>
       <div className={`mobile-menu ${mobileOpen ? "open" : ""}`}>
-        <div className="close-icon" onClick={toggleMobileMenu}>
+        <button
+          className="close-icon"
+          onClick={toggleMobileMenu}
+          type="button"
+          aria-label="Close mobile menu"
+        >
           <CloseIcon fontSize="large" />
-        </div>
+        </button>
         <div className="mobile-links">
           {navLinks.map((link) => {
             const isActive = activeSegment === link.href.substring(1);

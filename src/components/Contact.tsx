@@ -23,7 +23,7 @@ function Contact() {
           {t("contact.title")
             .split(" ")
             .map((word: string, i: number, arr: string[]) => (
-              <span key={i} className={i === arr.length - 1 ? "text-accent" : ""}>
+              <span key={`${word}-${i}`} className={i === arr.length - 1 ? "text-accent" : ""}>
                 {word}{" "}
               </span>
             ))}
@@ -31,11 +31,11 @@ function Contact() {
         <p>{t("contact.description1")}</p>
 
         <div className="contact-actions">
-          <button className="btn-primary" onClick={handleContactClick}>
+          <button className="btn-primary" onClick={handleContactClick} type="button">
             <EmailIcon /> {t("contact.startConversation")}
           </button>
 
-          <button className="btn-secondary" onClick={handleDownload}>
+          <button className="btn-secondary" onClick={handleDownload} type="button">
             <DownloadIcon /> {t("contact.viewResume")}
           </button>
         </div>
