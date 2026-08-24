@@ -5,36 +5,33 @@
     "history": "Historial",
     "contact": "Contacto",
     "projects": "Proyectos",
-    "menu": "Menú"
+    "menu": "Menú",
+    "close": "Cerrar",
+    "language": "Seleccionar idioma"
   },
   "main": {
     "greeting": "Hola, soy",
     "role": "Ingeniero Full Stack",
     "tagline1": "🚀 Convirtiendo ideas en soluciones elegantes | Abierto a colaboraciones emocionantes",
     "tagline2": "💡 Especializado en construir aplicaciones web escalables y microservicios",
-    "tagline3": "🤝Disponible para proyectos freelance y consultas técnicas",
     "viewProjects": "Ver Proyectos"
   },
   "expertise": {
     "title": "Experiencia Técnica",
     "fullstack": {
       "title": "Desarrollo Web Full Stack",
-      "description": "{{years}} años en Desarrollo Web Full Stack: Creo aplicaciones de nivel empresarial usando .NET, JS/TS, Angular, React, SQL Server y T-SQL. Experto certificado en Azure en soluciones en la nube, microservicios, Docker y Kubernetes.",
-      "techStack": "Stack tecnológico:"
+      "description": "{{years}} años en Desarrollo Web Full Stack: Creo aplicaciones de nivel empresarial usando .NET, JS/TS, Angular, React, SQL Server y T-SQL. Experto certificado en Azure en soluciones en la nube, microservicios, Docker y Kubernetes."
     },
     "backend": {
       "title": "Desarrollo Backend y API",
-      "description": "Diseño de microservicios escalables, APIs REST y arquitecturas de bases de datos robustas usando Node.js y .NET.",
-      "techStack": "Stack tecnológico:"
+      "description": "Diseño de microservicios escalables, APIs REST y arquitecturas de bases de datos robustas usando Node.js y .NET."
     },
     "devops": {
       "title": "DevOps y Automatización",
-      "description": "Una vez que la aplicación está construida, ayudo a los clientes a configurar pruebas DevOps, pipelines de CI/CD y automatización de despliegue para apoyar un Go-Live exitoso.",
-      "techStack": "Stack tecnológico:"
+      "description": "Una vez que la aplicación está construida, ayudo a los clientes a configurar pruebas DevOps, pipelines de CI/CD y automatización de despliegue para apoyar un Go-Live exitoso."
     }
   },
   "timeline": {
-    "title": "Historial Profesional",
     "professionalExperience": "Experiencia Profesional",
     "senior": {
       "title": "Ingeniero de Software Senior",
@@ -55,7 +52,6 @@
   "contact": {
     "title": "Creemos Algo Increíble",
     "description1": "¿Listo para dar vida a tu visión? Con experiencia en desarrollo full-stack y arquitectura en la nube, transformo ideas complejas en soluciones elegantes y escalables. Especializado en tecnologías web modernas, microservicios y aplicaciones nativas en la nube, puedo ayudarte a construir aplicaciones robustas y a prueba de futuro.",
-    "description2": "🟢 Disponible para proyectos freelance y consultas técnicas",
     "startConversation": "Iniciar una Conversación",
     "viewResume": "Ver Currículum"
   },
@@ -65,8 +61,6 @@
   },
   "projects": {
     "title": "Proyectos destacados",
-    "viewProject": "Ver Proyecto",
-    "viewCode": "Ver Código",
     "items": {
       "pdfOnline": {
         "title": "pdf-online",
@@ -84,11 +78,6 @@
         "description": "API robusta de .NET 9 que implementa el patrón arquitectónico CQRS para una separación clara de comandos y consultas."
       }
     }
-  },
-  "languages": {
-    "english": "English",
-    "spanish": "Español",
-    "hindi": "हिंदी"
   },
   "social": {
     "github": "GitHub",

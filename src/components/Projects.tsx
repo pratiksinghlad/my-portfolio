@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LaunchIcon from "@mui/icons-material/Launch";
+import SectionTitle from "./SectionTitle";
 import "../assets/styles/Projects.scss";
 
 const projects = [
@@ -29,16 +30,7 @@ function Projects() {
   return (
     <div id="projects">
       <div className="container fade-in">
-        <h1 className="section-title">
-          {t("projects.title") &&
-            t("projects.title")
-              .split(" ")
-              .map((word: string, i: number, arr: string[]) => (
-                <span key={i} className={i === arr.length - 1 ? "text-accent" : ""}>
-                  {word}{" "}
-                </span>
-              ))}
-        </h1>
+        <SectionTitle translationKey="projects.title" />
 
         <div className="projects-grid">
           {projects.map((project) => (

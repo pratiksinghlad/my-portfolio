@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 #contact {
   padding: $spacing-3xl 0;
@@ -9,9 +9,11 @@
   max-width: 600px;
   margin: 0 auto;
   padding: $spacing-2xl;
-  background: radial-gradient(circle, rgba($color-bg-alt, 0.8) 0%, rgba($color-bg, 0) 70%);
+  background-color: $color-bg-alt;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: $radius-lg;
-  
+  box-shadow: $shadow-lg;
+
   h1 {
     font-size: 2.5rem;
     margin-bottom: $spacing-lg;
@@ -29,7 +31,7 @@
     justify-content: center;
     gap: $spacing-lg;
     margin-top: $spacing-2xl;
-    
+
     @media (max-width: 600px) {
       flex-direction: column;
     }

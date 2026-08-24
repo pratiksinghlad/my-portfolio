@@ -5,36 +5,33 @@
     "history": "History",
     "contact": "Contact",
     "projects": "Projects",
-    "menu": "Menu"
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Select language"
   },
   "main": {
     "greeting": "Hi, I'm",
     "role": "Full Stack Engineer",
     "tagline1": "🚀 Turning ideas into elegant solutions | Open for exciting collaborations",
     "tagline2": "💡 Specialized in building scalable web applications and microservices",
-    "tagline3": "🤝Available for freelance projects and technical consultations",
     "viewProjects": "View Projects"
   },
   "expertise": {
     "title": "Expertise",
     "fullstack": {
       "title": "Full Stack Web Development",
-      "description": "{{years}} years in Full Stack Web Dev: I craft enterprise-grade apps using .NET, JS/TS, Angular, React, SQL Server & T-SQL. Azure Certified expert in cloud solutions, microservices, Docker & Kubernetes.",
-      "techStack": "Tech stack:"
+      "description": "{{years}} years in Full Stack Web Dev: I craft enterprise-grade apps using .NET, JS/TS, Angular, React, SQL Server & T-SQL. Azure Certified expert in cloud solutions, microservices, Docker & Kubernetes."
     },
     "backend": {
       "title": "Backend & API Development",
-      "description": "Designing scalable microservices, REST APIs, and robust database architectures using Node.js and .NET.",
-      "techStack": "Tech stack:"
+      "description": "Designing scalable microservices, REST APIs, and robust database architectures using Node.js and .NET."
     },
     "devops": {
       "title": "DevOps & Automation",
-      "description": "Once the application is built, I help clients set up DevOps testing, CI/CD pipelines, and deployment automation to support the successful Go-Live.",
-      "techStack": "Tech stack:"
+      "description": "Once the application is built, I help clients set up DevOps testing, CI/CD pipelines, and deployment automation to support the successful Go-Live."
     }
   },
   "timeline": {
-    "title": "Career History",
     "professionalExperience": "Professional Experience",
     "senior": {
       "title": "Senior Software Engineer",
@@ -55,7 +52,6 @@
   "contact": {
     "title": "Let's Create Something Amazing",
     "description1": "Ready to bring your vision to life? With expertise in full-stack development and cloud architecture, I transform complex ideas into elegant, scalable solutions. Specializing in modern web technologies, microservices, and cloud-native applications, I can help you build robust and future-proof applications.",
-    "description2": "🟢 Available for freelance projects and technical consultations",
     "startConversation": "Start a Conversation",
     "viewResume": "View Resume"
   },
@@ -65,8 +61,6 @@
   },
   "projects": {
     "title": "Featured open source Projects",
-    "viewProject": "View Project",
-    "viewCode": "View Code",
     "items": {
       "pdfOnline": {
         "title": "pdf-online",
@@ -84,11 +78,6 @@
         "description": "Robust .NET 9 API implementing the CQRS architectural pattern for clean separation of commands and queries."
       }
     }
-  },
-  "languages": {
-    "english": "English",
-    "spanish": "Español",
-    "hindi": "हिंदी"
   },
   "social": {
     "github": "GitHub",

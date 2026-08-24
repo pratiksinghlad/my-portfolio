@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDocker } from "@fortawesome/free-brands-svg-icons";
 import { faCode, faServer } from "@fortawesome/free-solid-svg-icons";
+import SectionTitle from "./SectionTitle";
 import "../assets/styles/Expertise.scss";
 
 const skillsData = [
@@ -28,15 +29,7 @@ function Expertise() {
   return (
     <div className="container" id="skills">
       <div className="skills-container fade-in">
-        <h1 className="section-title">
-          {t("expertise.title")
-            .split(" ")
-            .map((word: string, i: number, arr: string[]) => (
-              <span key={i} className={i === arr.length - 1 ? "text-accent" : ""}>
-                {word}{" "}
-              </span>
-            ))}
-        </h1>
+        <SectionTitle translationKey="expertise.title" />
 
         <div className="skills-grid">
           {skillsData.map((skill) => (

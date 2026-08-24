@@ -15,7 +15,7 @@ const languages = [
 ];
 
 function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -42,6 +42,7 @@ function LanguageSwitcher() {
         aria-controls={open ? "language-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
+        aria-label={t("navigation.language", "Select language")}
         onClick={handleClick}
         startIcon={<LanguageIcon />}
         sx={{
@@ -63,8 +64,10 @@ function LanguageSwitcher() {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "language-button",
+        slotProps={{
+          list: {
+            "aria-labelledby": "language-button",
+          },
         }}
         sx={{
           "& .MuiPaper-root": {
