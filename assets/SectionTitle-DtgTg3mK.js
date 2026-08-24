@@ -1,0 +1,1 @@
+import{n as e,t}from"./jsx-runtime-BYpVLqAR.js";var n=t(),r=({translationKey:t})=>{let{t:r}=e(),i=r(t);return(0,n.jsx)(`h1`,{className:`section-title`,children:i.split(` `).map((e,t,r)=>(0,n.jsxs)(`span`,{className:t===r.length-1?`text-accent`:``,children:[e,` `]},`${e}-${t}`))})};export{r as t};
