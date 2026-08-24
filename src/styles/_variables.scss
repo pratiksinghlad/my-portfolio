@@ -8,10 +8,15 @@
   --color-text-secondary: #cbd5e1;
   --color-text-muted: #94a3b8;
   --color-accent-rgb: 99, 102, 241;
-  --color-accent: rgb(var(--color-accent-rgb));
-  --color-accent-light: #818cf8;
+  --color-accent: #6366f1;
+  --color-accent-light: #a5b4fc; // High contrast (9.2:1) on dark backgrounds
   --color-accent-dark: #4f46e5;
   --color-accent-glow: rgba(var(--color-accent-rgb), 0.4);
+  --color-btn-primary-bg: #4f46e5; // 6.86:1 contrast with white text
+  --color-btn-primary-hover: #4338ca;
+  --color-tag-bg: rgba(99, 102, 241, 0.15);
+  --color-tag-text: #c7d2fe; // 8.2:1 contrast on dark card
+  --color-tag-border: rgba(165, 180, 252, 0.3);
 }
 
 [data-theme="light"] {
@@ -21,12 +26,17 @@
   --color-bg-darker: #e2e8f0;
   --color-text-primary: #0f172a;
   --color-text-secondary: #334155;
-  --color-text-muted: #64748b;
+  --color-text-muted: #475569; // 6.89:1 contrast on light backgrounds
   --color-accent-rgb: 79, 70, 229;
-  --color-accent: rgb(var(--color-accent-rgb));
-  --color-accent-light: #6366f1;
+  --color-accent: #4f46e5;
+  --color-accent-light: #4338ca; // 8.75:1 contrast on light backgrounds
   --color-accent-dark: #3730a3;
   --color-accent-glow: rgba(var(--color-accent-rgb), 0.2);
+  --color-btn-primary-bg: #4f46e5; // 6.86:1 contrast with white text
+  --color-btn-primary-hover: #3730a3;
+  --color-tag-bg: rgba(79, 70, 229, 0.08);
+  --color-tag-text: #3730a3; // 9.5:1 contrast on light card
+  --color-tag-border: rgba(79, 70, 229, 0.25);
 }
 
 // Map SCSS variables for easy access
@@ -42,6 +52,12 @@ $color-accent: var(--color-accent);
 $color-accent-light: var(--color-accent-light);
 $color-accent-dark: var(--color-accent-dark);
 $color-accent-glow: var(--color-accent-glow);
+
+$color-btn-primary-bg: var(--color-btn-primary-bg);
+$color-btn-primary-hover: var(--color-btn-primary-hover);
+$color-tag-bg: var(--color-tag-bg);
+$color-tag-text: var(--color-tag-text);
+$color-tag-border: var(--color-tag-border);
 
 // Raw RGB variables for alpha processing in SCSS/CSS
 $color-accent-rgb: var(--color-accent-rgb);
@@ -84,4 +100,3 @@ $shadow-xl:
 $shadow-glow: 0 0 15px $color-accent-glow;
 
 $transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-$transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);

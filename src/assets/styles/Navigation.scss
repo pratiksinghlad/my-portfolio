@@ -159,12 +159,18 @@
   background-color: $color-bg-alt;
   padding: $spacing-2xl $spacing-lg;
   transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
   z-index: 1001;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
 
   &.open {
     transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .close-icon {
@@ -172,6 +178,16 @@
     top: $spacing-lg;
     right: $spacing-lg;
     cursor: pointer;
+    color: $color-text-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-xs;
+    border-radius: $radius-sm;
+
+    &:hover {
+      color: $color-accent;
+    }
   }
 
   .mobile-links {
@@ -188,7 +204,7 @@
       padding-bottom: $spacing-sm;
 
       &.active {
-        color: $color-accent;
+        color: $color-accent-light;
         padding-left: $spacing-sm;
         border-left: 3px solid $color-accent;
       }

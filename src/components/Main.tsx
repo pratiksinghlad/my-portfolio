@@ -15,7 +15,7 @@ function Main() {
           <h1 className="hero-title">
             {t("main.greeting")} <span className="text-accent">{MY_NAME}</span>
           </h1>
-          <h2 className="hero-subtitle">{t("main.role")}</h2>
+          <p className="hero-subtitle">{t("main.role")}</p>
           <p className="hero-description">
             {t("main.tagline1")} {t("main.tagline2")}
           </p>
@@ -53,7 +53,11 @@ function Main() {
         </div>
 
         <div className="hero-image-wrapper fade-in">
-          <img src={`${import.meta.env.BASE_URL}images/profile_picture_icon.jpg`} alt={MY_NAME} className="hero-image" />
+          <img
+            src={`${import.meta.env.BASE_URL}images/profile_picture_icon.jpg`}
+            alt={MY_NAME}
+            className="hero-image"
+          />
         </div>
       </div>
     </div>
